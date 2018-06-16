@@ -1,3 +1,4 @@
+
 # Values At Nested
 [![Gem Version](https://badge.fury.io/rb/values_at_nested.svg)](https://rubygems.org/gems/values_at_nested)
 [![Build Status](https://travis-ci.org/abarrak/values_at_nested.svg?branch=master)](https://travis-ci.org/abarrak/values_at_nested)
@@ -60,7 +61,7 @@ h.values_at_nested(:name, :degree, :preferences)
 => ['Albert', 'Physics', ['orange', 'cat']]
 ```
 
-It works for any nested levels. Check [test case](https://github.com/abarrak/values_at_nested/blob/master/spec/values_at_nested_spec.rb#64-84) for 3-level, and 4-level depth examples.
+It works for any nested levels. Check [test case](https://github.com/abarrak/values_at_nested/blob/master/spec/values_at_nested_spec.rb#L64-L84) for 3-level, and 4-level depth examples.
 
 ## Documentation
 
