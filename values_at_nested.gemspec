@@ -12,6 +12,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Abdullah Barrak"]
   spec.email         = ["abdullah@abarrak.com"]
 
+  spec.required_ruby_version = '>= 2.3'
+
   spec.summary       = "An extended version of ruby's `#values_at` hash method."
   spec.description   = "values_at_nested values extraction of given hash keys at various depth."
   spec.homepage      = "https://github.com/abarrak/values_at_nested"
