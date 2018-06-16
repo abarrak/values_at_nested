@@ -12,16 +12,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Abdullah Barrak"]
   spec.email         = ["abdullah@abarrak.com"]
 
-  spec.summary       = "an extended version of ruby's `#values_at` hash method."
-  spec.description   = "values_at_nested allows exclusion of given hash keys at various depth."
+  spec.summary       = "An extended version of ruby's `#values_at` hash method."
+  spec.description   = "values_at_nested values extraction of given hash keys at various depth."
   spec.homepage      = "https://github.com/abarrak/values_at_nested"
   spec.license       = "MIT"
-
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

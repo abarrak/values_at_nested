@@ -1,4 +1,0 @@
-example_id                           | status | run_time        |
------------------------------------- | ------ | --------------- |
-./spec/values_at_nested_spec.rb[1:1] | passed | 0.00045 seconds |
-./spec/values_at_nested_spec.rb[1:2] | failed | 0.01482 seconds |

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    values_at_nested (0.1.0)
+    values_at_nested (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -43,4 +43,4 @@ DEPENDENCIES
   values_at_nested!
 
 BUNDLED WITH
-   1.15.4
+   1.16.2
