@@ -9,13 +9,31 @@ class Hash
   #   hash.values_at_nested(:a, b: [:x, :y])    # => [58, [true, false]]
   #
   def values_at_nested(*nested_keys)
-    iterate_over_nested(nested_keys) { |k| self.dig(*k) }
+    nested_keys.empty? ? [] : iterate_over_nested(nested_keys) { |k| self.dig(*k) }
   end
 
   def iterate_over_nested(keys)
     keys.collect do |key|
-      key.is_a?(Hash) ? key.collect { |k, v| v.collect { |i| yield [k, i] } } : yield(key)
-    end.flatten
+      value = self[key]
+
+      if key.is_a?(Hash)
+
+        key.collect do |k, v|
+          if Hash === v
+            v.values_at_nested(v.keys)
+          elsif Array === v
+            v.collect { |vi| yield [k, vi] }
+          else
+            yield [key, k]
+          end
+        end.flatten 1
+
+      elsif key.is_a?(Symbol) && value.is_a?(Hash)
+        value.iterate_over_nested(value.keys) { |k| yield [key, k]}
+      else
+        yield key
+      end
+    end
   end
 end
 
