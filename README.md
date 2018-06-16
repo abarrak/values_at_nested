@@ -2,6 +2,8 @@
 [![Gem Version](https://badge.fury.io/rb/values_at_nested.svg)](https://rubygems.org/gems/values_at_nested)
 [![Build Status](https://travis-ci.org/abarrak/values_at_nested.svg?branch=master)](https://travis-ci.org/abarrak/values_at_nested)
 [![Test Coverage](https://codeclimate.com/github/abarrak/values_at_nested/badges/coverage.svg)](https://codeclimate.com/github/abarrak/values_at_nested/coverage)
+[![Code Climate](https://lima.codeclimate.com/github/abarrak/values_at_nested/badges/gpa.svg)](https://lima.codeclimate.com/github/abarrak/values_at_nested)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `values_at_nested` allows extraction of hash values at various depth of the hash.
 
@@ -32,28 +34,33 @@ $ gem install values_at_nested
 Given the following hash:
 
 ```ruby
-h = { name: 'Zohoor', degree: 'Psychology', preferences: { color: 'mauve', pet: 'cat' } }
+h = { name: 'Albert', degree: 'Physics', preferences: { color: 'orange', pet: 'cat' } }
 ```
 
 You can deep extract values:
 
 ```ruby
+h.values_at_nested(preferences: :pet)
+=> [['cat']]
+
+h.values_at_nested(:degree, preferences: [:color])
+=> ['Physics', ['orange']]
 ```
 
 Or extrac values in the first level just like normal `#values_at` does:
 
 ```ruby
 h.values_at_nested(:name)
-=> ['Zohoor']
+=> ['Albert']
 
 h.values_at_nested(:name, :degree)
-=> ['Zohoor', 'Psychology']
+=> ['Albert', 'Physics']
 
 h.values_at_nested(:name, :degree, :preferences)
-=> ['Zohoor', 'Psychology', ['mauve', 'cat']]
+=> ['Albert', 'Physics', ['orange', 'cat']]
 ```
 
-It works for any nested levels. Check [test case]() for 3-level depth example.
+It works for any nested levels. Check [test case](https://github.com/abarrak/values_at_nested/blob/master/spec/values_at_nested_spec.rb#64-84) for 3-level, and 4-level depth examples.
 
 ## Documentation
 

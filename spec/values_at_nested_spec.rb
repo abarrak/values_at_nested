@@ -61,15 +61,25 @@ RSpec.describe ValuesAtNested do
       expect(vals.size).to eq(3)
     end
 
-    context "3-level nested" do
-      subject { { a: 1, b: { b1: true, b2: false }, c: { d: { x: 100, y: 200 }, e: true } } }
+    context "Deeply nested levels" do
+      subject { { a: 1, b: { b1: true, b2: false }, c: { d: { x: 100, y: { w: 200 } }, e: true } } }
 
-      it "accepts nested keys list in and filters accordingly" do
+      it "accepts 3 nested keys list in and filters accordingly" do
         val = subject.values_at_nested(c: { d: :x })
 
-        expect(val).not_to eq(subject)
         expect(val).not_to eq(subject.values)
-        expect(val).to eq(subject[:c][:d][:x])
+        expect(val).to eq( [[subject.dig(:c, :d, :x)] ])
+        expect(val).to include([subject[:c][:d][:x]])
+        expect(val.size).to eq(1)
+      end
+
+      it "accepts 4 nested keys list in and filters accordingly" do
+        val = subject.values_at_nested(c: { d: { y: :w } })
+
+        expect(val).not_to eq(subject.values)
+        expect(val).to eq([ [subject.dig(:c, :d, :y, :w)] ])
+        expect(val).to include([subject.dig(:c, :d, :y, :w)])
+        expect(val.size).to eq(1)
       end
     end
   end
