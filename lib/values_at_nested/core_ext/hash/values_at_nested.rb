@@ -23,7 +23,7 @@ class Hash
           if Hash === v
             yield [k, v.iterate_over_nested(v.keys) { |kn| kn }].flatten
           elsif Array === v
-            v.collect { |vi| yield [k, vi] }
+            v.map { |vi| yield [k, vi] }
           else
             yield [k, v]
           end
