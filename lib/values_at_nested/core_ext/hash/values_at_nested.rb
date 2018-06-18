@@ -21,7 +21,7 @@ class Hash
       if key.is_a?(Hash)
         key.collect do |k, v|
           if Hash === v
-            yield [k, v.iterate_over_nested(v.keys) { |kn| kn }].flatten
+            yield [k, v.send(:iterate_over_nested, v.keys) { |kn| kn }].flatten
           elsif Array === v
             v.map { |vi| yield [k, vi] }
           else
@@ -30,7 +30,7 @@ class Hash
         end.flatten 1
 
       elsif key.is_a?(Symbol) && value.is_a?(Hash)
-        value.iterate_over_nested(value.keys) { |k| yield [key, k]}
+        value.send(:iterate_over_nested, value.keys) { |k| yield [key, k] }
       elsif key.is_a?(Symbol) && value.is_a?(Symbol)
         yield [key, value]
       else
@@ -38,4 +38,6 @@ class Hash
       end
     end
   end
+
+  private :iterate_over_nested
 end
