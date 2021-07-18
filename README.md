@@ -1,9 +1,9 @@
 
 # Values At Nested
 [![Gem Version](https://badge.fury.io/rb/values_at_nested.svg)](https://rubygems.org/gems/values_at_nested)
-[![Build Status](https://travis-ci.org/abarrak/values_at_nested.svg?branch=master)](https://travis-ci.org/abarrak/values_at_nested)
-[![Test Coverage](https://codeclimate.com/github/abarrak/values_at_nested/badges/coverage.svg)](https://codeclimate.com/github/abarrak/values_at_nested/coverage)
-[![Code Climate](https://lima.codeclimate.com/github/abarrak/values_at_nested/badges/gpa.svg)](https://lima.codeclimate.com/github/abarrak/values_at_nested)
+[![Build Status](https://app.travis-ci.com/abarrak/values_at_nested.svg?branch=master)](https://app.travis-ci.com/abarrak/values_at_nested)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e829f4ea204fca717e93/test_coverage)](https://codeclimate.com/github/abarrak/values_at_nested/test_coverage)
+[![Code Climate](https://api.codeclimate.com/v1/badges/e829f4ea204fca717e93/maintainability)](https://codeclimate.com/github/abarrak/values_at_nested/maintainability)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `values_at_nested` allows extraction of hash values at various depth of the hash.
